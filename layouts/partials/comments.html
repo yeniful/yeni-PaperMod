@@ -1,3 +1,48 @@
 {{- /* Comments area start */ -}}
 {{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
 {{- /* Comments area end */ -}}
+
+<section class="comments-section giscus-section">
+    <h3>GitHub Comments</h3>
+    <script src="https://giscus.app/client.js"
+            data-repo="yeniful/yeniful.github.io"
+            data-repo-id="R_kgDOKBynsw"
+            data-category-id="DIC_kwDOKByns84CrZhr"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="1"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="ko"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+</section>
+
+<section class="comments-section cusdis-section">
+    <h3>Cusdis Comments</h3>
+    <div id="cusdis_thread" data-host="https://cusdis.com"
+        data-app-id="18a3027c-1140-43b9-a278-40a54abe022d"
+        data-page-id="{{ .File.UniqueID }}" 
+        data-page-url="{{ .Permalink }}"
+        data-page-title="{{ .Title }}"></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</section>
+
+<style>
+.comments-section {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.giscus-section {
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.cusdis-section {
+    margin-top: 3rem;
+}
+</style>
