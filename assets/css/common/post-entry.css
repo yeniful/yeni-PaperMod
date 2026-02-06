@@ -33,6 +33,10 @@
     -webkit-line-clamp: unset;
 }
 
+.home-info {
+    margin-bottom: var(--gap);
+}
+
 .post-entry {
     position: relative;
     margin-bottom: var(--gap);

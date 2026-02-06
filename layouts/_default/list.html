@@ -45,7 +45,11 @@
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
 {{- end }}
 
-{{- $paginator := .Paginate $pages }}
+{{- $perPage := site.Params.Paginate | default 10 }}
+{{- if site.Params.simpleMode }}
+{{- $perPage = 99999 }}
+{{- end }}
+{{- $paginator := .Paginate $pages $perPage }}
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
@@ -95,7 +99,7 @@
 </article>
 {{- end }}
 
-{{- if gt $paginator.TotalPages 1 }}
+{{- if and (gt $paginator.TotalPages 1) (not site.Params.simpleMode) }}
 <footer class="page-footer">
   <nav class="pagination">
     {{- if $paginator.HasPrev }}
