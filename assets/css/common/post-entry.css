@@ -105,3 +105,42 @@
     color: var(--secondary);
     box-shadow: 0 1px 0 var(--primary);
 }
+
+/* Simple Mode Styles */
+.simple-mode .post-entry {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    padding: calc(var(--gap) / 2) 0;
+    margin-bottom: 0;
+}
+
+.simple-mode .post-entry:last-of-type {
+    border-bottom: none;
+}
+
+.simple-mode .post-entry:active {
+    transform: none;
+}
+
+.simple-mode .post-entry:hover {
+    background: transparent;
+}
+
+.simple-mode .entry-header h2 {
+    font-size: 18px;
+}
+
+.simple-mode .entry-cover {
+    display: none;
+}
+
+.simple-mode .entry-content {
+    display: none;
+}
+
+.simple-mode .entry-footer {
+    font-size: 12px;
+    margin-top: 4px;
+}
