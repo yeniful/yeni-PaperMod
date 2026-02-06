@@ -16,27 +16,15 @@
     {{- partial "head.html" . }}
 </head>
 
-<<<<<<< HEAD
-<body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list" -}}
-{{- end -}}
-{{- if eq site.Params.defaultTheme `dark` -}}
-{{- print " dark" }}
-{{- end -}}
-{{- if site.Params.simpleMode -}}
-{{- print " simple-mode" }}
-{{- end -}}
-" id="top">
-    {{- partialCached "header.html" . .Page -}}
-=======
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
-<body class="list" id="top">
-{{- else }}
-<body id="top">
+{{- $bodyClass := "" }}
+{{- if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) }}
+{{- $bodyClass = "list" }}
 {{- end }}
-    {{ partialCached "header.html" . .Page -}}
->>>>>>> 1cf5327 (Fix defaultTheme selection as we are using data-theme attribute)
+{{- if site.Params.simpleMode }}
+{{- $bodyClass = printf "%s simple-mode" $bodyClass }}
+{{- end }}
+<body class="{{ $bodyClass | strings.TrimLeft " " }}" id="top">
+    {{- partialCached "header.html" . .Page -}}
     <main class="main">
         {{- block "main" . }}{{ end }}
     </main>
